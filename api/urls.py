@@ -1,5 +1,4 @@
 from django.urls import path
-from rest_framework.urlpatterns import format_suffix_patterns
 from api import views
 
 urlpatterns = [
@@ -8,5 +7,3 @@ urlpatterns = [
     path('transacciones/', views.transaction_list.as_view()),
     path('transacciones/<int:pk>/', views.transaction_detail.as_view()),
 ]
-
-urlpatterns = format_suffix_patterns(urlpatterns)

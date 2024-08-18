@@ -31,5 +31,5 @@ class Transaction(models.Model):
     class Meta:
         ordering = ['created']
 
-def __str__(self):
-    return f"{self.category.type} - {self.category.name} - {self.amount}"
+    def __str__(self):
+        return f"{self.category.type} - {self.category.name} - {self.amount}"
