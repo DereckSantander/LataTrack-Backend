@@ -1,5 +1,5 @@
-from api.models import Category, Transaction
-from api.serializers import CategorySerializer, TransactionSerializer
+from api.models import Category, Transaction, Report
+from api.serializers import CategorySerializer, TransactionSerializer, ReportSerializer
 from rest_framework import generics
 
 
@@ -23,3 +23,13 @@ class transaction_detail(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
+
+class report_list(generics.ListCreateAPIView):
+
+    queryset = Report.objects.all()
+    serializer_class = ReportSerializer
+    
+class report_detail(generics.RetrieveUpdateDestroyAPIView):
+
+    queryset = Report.objects.all()
+    serializer_class = ReportSerializer
