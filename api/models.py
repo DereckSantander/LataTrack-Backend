@@ -29,8 +29,7 @@ class Report(models.Model):
     def assign_transactions(self):
         transactions_to_update = Transaction.objects.filter(
             created__gte=self.startDate,
-            created__lte=self.finishDate,
-            report__isnull=True
+            created__lte=self.finishDate
         )
         transactions_to_update.update(report=self)
 
