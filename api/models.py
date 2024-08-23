@@ -12,7 +12,8 @@ class Category(models.Model):
 
     name = models.CharField(max_length=100)
     type = models.CharField(max_length=7, choices=CATEGORY_TYPES)
-    #user = models.ForeignKey(User)
+    color= models.CharField(max_length=10)
+    icono = models.CharField(max_length=50)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
