@@ -48,7 +48,7 @@ class Report(models.Model):
 class Transaction(models.Model):
 
     amount = models.DecimalField(max_digits=10, decimal_places=2)
-    description = models.TextField(blank=True, null=True)
+    description = models.TextField(max_length= 50)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='transactions')
     created = models.DateTimeField()
     report = models.ForeignKey(Report, on_delete=models.CASCADE, related_name='transactions', null=True, blank=True)
