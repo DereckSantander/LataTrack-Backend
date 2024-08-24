@@ -1,6 +1,8 @@
 from api.models import Category, Transaction, Report
 from api.serializers import CategorySerializer, TransactionSerializer, ReportSerializer
 from rest_framework import generics
+from django_filters.rest_framework import DjangoFilterBackend
+from .filters import TransactionFilter
 
 
 class category_list(generics.ListCreateAPIView):
@@ -12,6 +14,9 @@ class transaction_list(generics.ListCreateAPIView):
 
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_class = TransactionFilter
+
     
 class category_detail(generics.RetrieveUpdateDestroyAPIView):
 
