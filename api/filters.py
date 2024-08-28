@@ -1,5 +1,5 @@
 from django_filters import rest_framework as filters
-from .models import Transaction
+from .models import Transaction, Category
 
 class TransactionFilter(filters.FilterSet):
     category_type = filters.CharFilter(field_name='category__type')
@@ -9,3 +9,10 @@ class TransactionFilter(filters.FilterSet):
     class Meta:
         model = Transaction
         fields = ['category_type','created_before', 'created_after']
+
+class CategoryFilter(filters.FilterSet):
+    category_type = filters.CharFilter(field_name='type')
+
+    class Meta:
+        model = Category
+        fields = ['category_type']
